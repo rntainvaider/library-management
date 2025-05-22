@@ -6,6 +6,10 @@ app = FastAPI()
 def hello():
     return "Hello world"
 
+@app.post("/register/", tags=["Регистрация"], summary="Регистрация пользователей")
+def registration():
+    return "Registration"
+
 if __name__ == "__main__":
     import uvicorn
 
