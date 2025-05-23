@@ -2,12 +2,15 @@ from pydantic import BaseModel, EmailStr
 
 
 class CreateUser(BaseModel):
-    username: str
+    password: str
     email: EmailStr
 
 
+class UserIn(CreateUser):
+    pass
+
+
 class UserOut(BaseModel):
-    username: str
     email: EmailStr
 
     class Config:

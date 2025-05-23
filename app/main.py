@@ -1,15 +1,13 @@
-from fastapi import Depends, FastAPI, status
-from sqlalchemy.orm import Session
-from core.database import get_db, init_db
-from schemas.librarian import CreateLibrarian, LibrarianOut
-from models.librarian import Librarian
-from models.user import User
-from api.routes.registration import router
+from fastapi import FastAPI
+from core.database import init_db
+from api.routes.registration import router as registration
+from api.routes.login import router as login
 
 app = FastAPI()
 
 # Подключение маршрутов
-app.include_router(router)
+app.include_router(registration)
+app.include_router(login)
 
 init_db()  # Создание таблиц
 
