@@ -7,7 +7,7 @@ from models.librarian import Librarian
 from models.user import User
 import bcrypt
 
-router = APIRouter()
+router = APIRouter(prefix="/registration", tags=["Регистрация"])
 
 
 def get_db_user(email: str, db: Session = Depends(get_db)) -> bool:
@@ -25,8 +25,7 @@ def get_db_user(email: str, db: Session = Depends(get_db)) -> bool:
 
 
 @router.post(
-    "/registretion/user/",
-    tags=["Регистрация"],
+    "/user/",
     summary="Регистрация пользователей",
     status_code=status.HTTP_201_CREATED,
     response_model=UserOut,
@@ -61,8 +60,7 @@ def registration_user(new_user: CreateUser, db: Session = Depends(get_db)) -> Us
 
 
 @router.post(
-    "/register/labrarian",
-    tags=["Регистрация"],
+    "/labrarian/",
     summary="Регистрация библиотекорей",
     status_code=status.HTTP_201_CREATED,
     response_model=LibrarianOut,
