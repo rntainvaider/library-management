@@ -1,13 +1,12 @@
 from pydantic import BaseModel, EmailStr
 
 
-class CreateUser(BaseModel):
-    username: str
+class CreateLibrarian(BaseModel):
+    password: str
     email: EmailStr
 
 
-class UserOut(BaseModel):
-    username: str
+class LibrarianOut(BaseModel):
     email: EmailStr
 
     class Config:

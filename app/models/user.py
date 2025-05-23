@@ -1,8 +1,10 @@
 from sqlalchemy import Column, String, Integer
-from base import Base
+from .base import Base
+
 
 class User(Base):
     """Модель пользователя."""
+
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
